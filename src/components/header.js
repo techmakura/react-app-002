@@ -1,16 +1,17 @@
+import styles from './header.module.css'; 
 import "./header.css";
 
 const Header = () => {
-    return (<header>
+    return (<header className={styles.header}>
         <nav>
-            <ul>
-                <li>
+            <ul className={styles.list}>
+                <li className={styles['list-item']}>
                     <a href='#'>Home</a>
                 </li>
-                <li>
+                <li className={styles['list-item']}>
                     <a href='#'>Contact</a>
                 </li>
-                <li>
+                <li className={styles['list-item']}>
                     <a href='#'>About</a>
                 </li>
             </ul>
