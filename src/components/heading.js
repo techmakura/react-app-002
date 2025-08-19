@@ -1,6 +1,7 @@
 
 const Heading = (props) => {
     const {title, type} = props
+    
     return (
         <>
         {type === 'h1' && <h1 className="heading-1">{title}</h1>}

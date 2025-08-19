@@ -1,6 +1,7 @@
 import styles from './header.module.css';
 import "./header.css";
 import { InputStyle, InputWrapper } from "./components.styled";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (<header className={styles.header}>
@@ -8,13 +9,19 @@ const Header = () => {
             <InputWrapper>
                 <ul className={styles.list}>
                     <li className={styles['list-item']}>
-                        <a href='#'>Home</a>
+                        <Link to="/">
+                            Home
+                        </Link>
                     </li>
                     <li className={styles['list-item']}>
-                        <a href='#'>Contact</a>
+                        <Link to="/contact">
+                            Contact
+                        </Link>
                     </li>
                     <li className={styles['list-item']}>
-                        <a href='#'>About</a>
+                        <Link to="/about">
+                            About
+                        </Link>
                     </li>
                 </ul>
             </InputWrapper>

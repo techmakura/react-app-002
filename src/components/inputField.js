@@ -1,7 +1,7 @@
 import "./inputfield.css";
 
 const InputField = (props) => {
-    const { type, placeholder, name, label } = props;
+    const { type, placeholder, name, label, onChange, value } = props;
 
     return (
         <div>
@@ -9,8 +9,10 @@ const InputField = (props) => {
             <input
                 className="resuseable-input"
                 type={type}
+                onChange={onChange}
                 placeholder={placeholder}
                 name={name}
+                value={value}
             />
         </div>
     )

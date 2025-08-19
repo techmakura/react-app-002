@@ -6,7 +6,7 @@ const Button = (props) => {
         <button className={`btn 
     ${type == "secondary" ? "btn-secondary" : "btn-primary"} 
     `} >
-        {type == "secondary" ? "Cancel" : "Submit"}
+        {props.children}
     </button>
     )
 }
