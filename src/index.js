@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client';
+import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Homepage from './pages/homepage';
 import ContactPage from './pages/contactPage';
@@ -9,6 +9,7 @@ import AboutPage from './pages/aboutPage';
 import PageNotFound from './pages/pageNotFound';
 import ExternalCall2 from './components/externalCall2';
 import ExternalCall from './components/externalCall';
+import Books from './pages/Books';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
   { path: "/about", element: <AboutPage /> },
   { path: "/wine", element: <ExternalCall2 /> },
   { path: "/wine/:id", element: <ExternalCall /> },
+  { path: "/books", element: <Books />},
   { path: "*", element: <PageNotFound /> }
 ])
 

@@ -1,0 +1,38 @@
+.book-card{
+    border-radius: 10px;
+    display: flex;
+    gap: 20px;
+    border: 1px solid #d9d9d9;
+}
+
+.book-card_avatar{
+    flex-basis: 250px;
+}
+
+.book-card_avatar img{
+    width: 100%;
+    height: auto;
+}
+
+.book-card_desc {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px;
+}
+
+.book-card_desc h2{
+    font-size: 24px;
+    color: #333;
+}
+
+.books-card-meta{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.books-card-meta span{
+    font-size: 16px;
+    color: teal;
+}
