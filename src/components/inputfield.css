@@ -1,4 +1,4 @@
-.resuseable-input {
+.resuseable-input, select {
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 10px;

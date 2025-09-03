@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CreateBooks from "../components/createBooks";
 import BookCard from "../components/bookCard";
 import "./books.css";
+import "./generic.css";
 
 const Books = () => {
 
@@ -32,7 +33,7 @@ const Books = () => {
     console.log("books " + books);
 
     return (
-        <>
+        <div className="page">
             <h2>List of books</h2>
             <div className="book-list">
                 {books.length > 0 ? (
@@ -43,7 +44,7 @@ const Books = () => {
             </div>
             <h2>Create books</h2>
             <CreateBooks />
-        </>
+        </div>
     )
 }
 
