@@ -8,7 +8,7 @@ const SelectField = (props) => {
         <div>
             <label className="input-label">{label}</label>
             <select name={name} onChange={onChange}>
-                {options.map((value, index) => (
+                {options.length > 0 && options.map((value, index) => (
                     <option key={index} value={value._id}>{value.name}</option>
                 ))}
             </select>
