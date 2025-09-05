@@ -3,6 +3,7 @@ import CreateBooks from "../components/createBooks";
 import BookCard from "../components/bookCard";
 import "./books.css";
 import "./generic.css";
+import { Link } from "react-router-dom";
 
 const Books = () => {
 
@@ -34,7 +35,13 @@ const Books = () => {
 
     return (
         <div className="page">
-            <h2>List of books</h2>
+            <div className="header-wrapper">
+                <h2>List of books</h2>
+                <Link to="/create-book">
+                    Create Book
+                </Link>
+            </div>
+
             <div className="book-list">
                 {books.length > 0 ? (
                     books.map((value, index) => (
@@ -42,8 +49,7 @@ const Books = () => {
                     ))
                 ) : "Books not found"}
             </div>
-            <h2>Create books</h2>
-            <CreateBooks />
+
         </div>
     )
 }

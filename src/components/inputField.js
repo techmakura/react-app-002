@@ -1,7 +1,7 @@
 import "./inputfield.css";
 
 const InputField = (props) => {
-    const { type, placeholder, name, label, onChange, value } = props;
+    const { type, placeholder, name, label, onChange, defaultValue } = props;
 
     return (
         <div>
@@ -12,7 +12,7 @@ const InputField = (props) => {
                 onChange={onChange}
                 placeholder={placeholder}
                 name={name}
-                value={value}
+                defaultValue={defaultValue}
             />
         </div>
     )

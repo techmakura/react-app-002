@@ -11,6 +11,7 @@ import ExternalCall2 from './components/externalCall2';
 import ExternalCall from './components/externalCall';
 import Books from './pages/Books';
 import BookDetails from './pages/bookDetails';
+import CreateBook from './pages/CreateBook';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
   { path: "/wine/:id", element: <ExternalCall /> },
   { path: "/books", element: <Books />},
   { path: "/books/:id", element: <BookDetails />},
+  { path: "/create-book", element: <CreateBook /> },
   { path: "*", element: <PageNotFound /> }
 ])
 

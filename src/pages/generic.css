@@ -2,3 +2,30 @@
     max-width: 1200px;
     margin: 0 auto;
 }
+
+.header-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+}
+
+.header-wrapper a{
+    text-decoration: none;
+    padding: 12px 20px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    background-color: aliceblue;
+}
+
+.header-wrapper button{
+    padding: 12px 20px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    background-color: aliceblue;
+}
+
+form img{
+    width: 400px;
+    height: auto;
+}
