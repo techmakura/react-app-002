@@ -3,10 +3,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import InputField from "./inputField";
 import SelectField from "./selectField";
-import { Link } from "react-router-dom";
 
 const CreateBooks = (props) => {
     const { isEdit, title, _id, price, pages, langauge, author, avatar, onCancel } = props;
+    console.log(author + " author")
 
     const langaugeOptions = [{ _id: 'eng', name: 'eng' }, { _id: 'nep', name: 'nep' }];
 
@@ -26,7 +26,7 @@ const CreateBooks = (props) => {
 
     const fetchAuthor = async () => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:8000"}/author`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/author`, {
                 "headers": {
                     "token": process.env.REACT_APP_API_KEY || "random",
                     "Content-Type": "Application/json"
@@ -47,13 +47,13 @@ const CreateBooks = (props) => {
 
             if (isEdit) {
                 formData.append("title", book.title ? book.title : title);
-                formData.append("author", book.author ? book.author : author?._id);
-                formData.append("langauge", book.language ? book.language : langauge);
+                formData.append("author", book.author ? book.author : author);
+                formData.append("language", book.language ? book.language : langauge);
                 formData.append("price", book.price ? book.price : price);
                 formData.append("pages", book.pages ? book.pages : pages);
                 formData.append("image", book.avatar ? book.avatar : avatar);
 
-                const response = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:8000"}/book/${_id}`, {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/book/${_id}`, {
                     "headers": {
                         "token": process.env.REACT_APP_API_KEY || "random"
                     },
@@ -74,7 +74,7 @@ const CreateBooks = (props) => {
                 formData.append("price", book.price);
                 formData.append("pages", book.pages);
                 formData.append("image", book.avatar);
-                const response = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:8000"}/book`, {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/book`, {
                     "headers": {
                         "token": process.env.REACT_APP_API_KEY || "random"
                     },
@@ -105,19 +105,16 @@ const CreateBooks = (props) => {
         fetchAuthor();
     }, [])
 
-    console.log("isEdit ", isEdit);
-
-    console.log(isEdit ? "value: " + price : "")
     return (
         <>
             <form>
                 <InputField type="text" placeholder="Enter the title of book" name="title" onChange={handleChange} label="Book Title:" defaultValue={isEdit ? title : ""} />
                 <InputField type="number" placeholder="Pages count" name="pages" onChange={handleChange} label="pages:" defaultValue={isEdit ? pages : ""} />
                 <InputField type="number" placeholder="Price" name="price" onChange={handleChange} label="price:" defaultValue={isEdit ? price : ""} />
-                <SelectField name="language" options={langaugeOptions} onChange={handleChange} label="Language" defaultValue={isEdit ? langauge : ""} />
-                <img src={`http://localhost:8000/uploads/${avatar}`} alt={title} />
+                <SelectField name="language" options={langaugeOptions} onChange={handleChange} label="Language" selected={isEdit ? langauge : ""} />
+                <img src={`${process.env.REACT_APP_API_KEY}/uploads/${avatar}`} alt={title} />
                 <InputField type="file" onChange={handleChange} name="avatar" />
-                <SelectField name="author" onChange={handleChange} options={authors} label="Author" />
+                <SelectField name="author" onChange={handleChange} options={authors} label="Author" selected={isEdit ? author : "" } />
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                     <button onClick={handleFormSubmit}>Submit</button>
                     {isEdit ? <button onClick={onCancel}>Cancel</button> : ""}

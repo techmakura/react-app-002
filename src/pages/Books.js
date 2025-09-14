@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import CreateBooks from "../components/createBooks";
 import BookCard from "../components/bookCard";
 import "./books.css";
 import "./generic.css";
@@ -13,9 +12,9 @@ const Books = () => {
 
     const fetchBooks = async () => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:8000"}/book`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/book`, {
                 "headers": {
-                    "token": process.env.REACT_APP_API_KEY || "random",
+                    "token": process.env.REACT_APP_API_KEY,
                     "Content-Type": "Application/json"
                 }
             })
@@ -30,8 +29,6 @@ const Books = () => {
     useEffect(() => {
         fetchBooks();
     }, [])
-
-    console.log("books " + books);
 
     return (
         <div className="page">
