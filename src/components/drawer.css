@@ -1,0 +1,25 @@
+.drawer{
+    width: 300px;
+    padding: 25px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 300ms linear;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+}
+
+.drawer.open{
+    transform: translateX(0);
+    transition: transform 300ms linear;
+}
+
+.close{
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
