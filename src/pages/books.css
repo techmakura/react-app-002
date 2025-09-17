@@ -1,22 +1,29 @@
 .book-list{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     gap: 20px;
     flex-wrap: wrap;
 }
 
 .book-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     margin: 25px 0;
+    gap: 25px;
+}
+
+.book-desc{
+    display: flex;
+    flex-direction: column;
     gap: 15px;
+    align-items: flex-start;
 }
 
 .book-content img{
-    width: 400px;
+    width: 200px;
     height: auto;
 }
 

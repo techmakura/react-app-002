@@ -1,8 +1,11 @@
 import CreateBooks from "../components/createBooks";
+import MasterLayout from "../components/masterLayout";
 
 const CreateBook = () => {
-    return(
-        <CreateBooks />
+    return (
+        <MasterLayout>
+            <CreateBooks />
+        </MasterLayout>
     )
 }
 

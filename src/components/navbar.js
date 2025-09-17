@@ -5,11 +5,11 @@ const Navbar = () => {
         <div class="nav-wrapper">
             <nav>
                 <ul>
-                    <NavbarItem link="/home" label="Home" />
-                    <NavbarItem link="/shop" label="Shop" />
-                    <NavbarItem link="/product" label="Product" />
-                    <NavbarItem link="/blog" label="Blog" />
-                    <NavbarItem link="/page" label="Page" />
+                    <NavbarItem link="/" label="Home" />
+                    <NavbarItem link="/books" label="Book" />
+                    <NavbarItem link="/author" label="Author" />
+                    <NavbarItem link="/genre" label="Genre" />
+                    <NavbarItem link="/publisher" label="Publisher" />
                 </ul>
             </nav>
 

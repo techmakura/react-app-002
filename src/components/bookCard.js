@@ -15,10 +15,18 @@ const BookCard = (props) => {
                     <h2>{title}</h2>
                 </Link>
                 <div className="books-card-meta">
-                    <span>Pages: </span>{pages}
-                    <span>Price: </span>{price}
-                    <span>language: </span>{language}
-                    {author ? (<span>Author: {author.name}</span>) : ""}
+                    <div>
+                        <span>Pages: </span>{pages}
+                    </div>
+                    <div>
+                        <span>Price: </span>{price}
+                    </div>
+                    <div>
+                        <span>language: </span>{language}
+                    </div>
+                    <div>
+                        {author ? (<span>Author: {author.name}</span>) : ""}
+                    </div>
                 </div>
             </div>
         </div>

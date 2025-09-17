@@ -77,6 +77,10 @@ ul.topbar-social-wrapper {
     padding-left: 15px;
 }
 
+ul.topbar-social-wrapper .svg-inline--fa{
+    color: #fff;
+}
+
 ul.topbar-social-wrapper li {
     margin: 0 8px;
 }

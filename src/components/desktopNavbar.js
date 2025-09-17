@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "./navbar";
 
 const DesktopNavbar = () => {
@@ -6,8 +7,10 @@ const DesktopNavbar = () => {
             <div className="desktop-nav-wrapper">
                 <div class="desktop-nav">
                     <div class="brand-logo">
-                        <img src="https://boosin.wpbingosite.com/wp-content/themes/boosin/assets/images/logo/logo.svg"
-                            alt="brand logo" />
+                        <Link to="/">
+                            <img src="https://boosin.wpbingosite.com/wp-content/themes/boosin/assets/images/logo/logo.svg"
+                                alt="brand logo" />
+                        </Link>
                     </div>
 
                     <div class="navbar-search">

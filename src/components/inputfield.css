@@ -1,3 +1,6 @@
+form{
+    margin: 40px 0;
+}
 .resuseable-input, select {
     border: 1px solid #ccc;
     border-radius: 4px;

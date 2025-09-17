@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { Button } from "react-bootstrap";
 import InputField from "./inputField";
 import SelectField from "./selectField";
 
@@ -106,22 +107,23 @@ const CreateBooks = (props) => {
     }, [])
 
     return (
-        <>
+        <div className="container">
+            <h2>{isEdit? "Edit Book" : "Create Book"}</h2>
             <form>
                 <InputField type="text" placeholder="Enter the title of book" name="title" onChange={handleChange} label="Book Title:" defaultValue={isEdit ? title : ""} />
                 <InputField type="number" placeholder="Pages count" name="pages" onChange={handleChange} label="pages:" defaultValue={isEdit ? pages : ""} />
                 <InputField type="number" placeholder="Price" name="price" onChange={handleChange} label="price:" defaultValue={isEdit ? price : ""} />
                 <SelectField name="language" options={langaugeOptions} onChange={handleChange} label="Language" selected={isEdit ? langauge : ""} />
-                <img src={`${process.env.REACT_APP_API_KEY}/uploads/${avatar}`} alt={title} />
+                <img src={`${process.env.REACT_APP_API_URL}/uploads/${avatar}`} alt={title} />
                 <InputField type="file" onChange={handleChange} name="avatar" />
-                <SelectField name="author" onChange={handleChange} options={authors} label="Author" selected={isEdit ? author : "" } />
+                <SelectField name="author" onChange={handleChange} options={authors} label="Author" selected={isEdit ? author : ""} />
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
-                    <button onClick={handleFormSubmit}>Submit</button>
-                    {isEdit ? <button onClick={onCancel}>Cancel</button> : ""}
+                    <Button onClick={handleFormSubmit}>Submit</Button>
+                    {isEdit ? <Button variant="dark" onClick={onCancel}>Cancel</Button> : ""}
                 </div>
                 <ToastContainer />
             </form>
-        </>
+        </div>
     )
 }
 

@@ -3,6 +3,7 @@ import BookCard from "../components/bookCard";
 import "./books.css";
 import "./generic.css";
 import { Link } from "react-router-dom";
+import MasterLayout from "../components/masterLayout";
 
 const Books = () => {
 
@@ -31,23 +32,26 @@ const Books = () => {
     }, [])
 
     return (
-        <div className="page">
-            <div className="header-wrapper">
-                <h2>List of books</h2>
-                <Link to="/create-book">
-                    Create Book
-                </Link>
-            </div>
+        <MasterLayout>
+            <div className="container">
+                <div className="page">
+                    <div className="header-wrapper">
+                        <h2>List of books</h2>
+                        <Link to="/create-book">
+                            Create Book
+                        </Link>
+                    </div>
 
-            <div className="book-list">
-                {books.length > 0 ? (
-                    books.map((value, index) => (
-                        <BookCard key={index} data={value} />
-                    ))
-                ) : "Books not found"}
+                    <div className="book-list">
+                        {books.length > 0 ? (
+                            books.map((value, index) => (
+                                <BookCard key={index} data={value} />
+                            ))
+                        ) : "Books not found"}
+                    </div>
+                </div>
             </div>
-
-        </div>
+        </MasterLayout>
     )
 }
 

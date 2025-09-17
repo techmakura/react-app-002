@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { Button } from "react-bootstrap";
 import CreateBooks from "../components/createBooks";
 import Modal from "../components/modal";
 import "./generic.css";
+import MasterLayout from "../components/masterLayout";
 
 const BookDetails = () => {
     const [book, setBook] = useState({});
@@ -63,49 +65,53 @@ const BookDetails = () => {
     }, [])
 
     return (
-        <div className="book-page">
-            <ToastContainer />
-            <div className="header-wrapper">
-                <h2>{book.title}</h2>
-                <div style={{ display: "flex", gap: "20px" }}>
-                    <button onClick={() => setIsEdit(true)}>Edit</button>
-                    <button onClick={handleDeletePop}>Delete</button>
-                    <Link to="/books">Back</Link>
+        <MasterLayout>
+            <div className="book-page">
+                <ToastContainer />
+                <div className="header-wrapper">
+                    <h2>{book.title}</h2>
+                    <div style={{ display: "flex", gap: "20px" }}>
+                        <Button onClick={() => setIsEdit(true)}>Edit</Button>
+                        <Button variant="danger" onClick={handleDeletePop}>Delete</Button>
+                        <Link to="/books">Back</Link>
+                    </div>
                 </div>
-            </div>
-            <div className="book-content">
-                <img src={`${process.env.REACT_APP_API_URL}/uploads/${book.cover_image}`} alt={book.title} />
-                <div className="book-meta">
-                    <div className="key">Price: </div>
-                    <div className="value">{book.price}</div>
+                <div className="book-content">
+                    <img src={`${process.env.REACT_APP_API_URL}/uploads/${book.cover_image}`} alt={book.title} />
+                    <div className="book-desc">
+                        <div className="book-meta">
+                            <div className="key">Price: </div>
+                            <div className="value">{book.price}</div>
+                        </div>
+                        <div className="book-meta">
+                            <div className="key">Pages: </div>
+                            <div className="value">{book.pages}</div>
+                        </div>
+                        <div className="book-meta">
+                            <div className="key">Language: </div>
+                            <div className="value">{book.language}</div>
+                        </div>
+                        <div className="book-meta">
+                            <div className="key">Author: </div>
+                            <div className="value">{book.author?.name}</div>
+                        </div>
+                    </div>
                 </div>
-                <div className="book-meta">
-                    <div className="key">Pages: </div>
-                    <div className="value">{book.pages}</div>
-                </div>
-                <div className="book-meta">
-                    <div className="key">Language: </div>
-                    <div className="value">{book.language}</div>
-                </div>
-                <div className="book-meta">
-                    <div className="key">Author: </div>
-                    <div className="value">{book.author?.name}</div>
-                </div>
-            </div>
 
-            {isEdit ? (<CreateBooks
-                isEdit={isEdit}
-                title={book.title}
-                _id={book._id}
-                price={book.price}
-                pages={book.pages}
-                langauge={book.language}
-                author={book.author?._id}
-                avatar={book.cover_image}
-                onCancel={() => setIsEdit(false)} />) : ""}
-            
-            {openModal && <Modal title="Delete!" body="Are you sure want to delete ?" close="Cancel" save="Delete" onSave={handleDelete} onCancel={()=>setOpenModal(false)} />}
-        </div>
+                {isEdit ? (<CreateBooks
+                    isEdit={isEdit}
+                    title={book.title}
+                    _id={book._id}
+                    price={book.price}
+                    pages={book.pages}
+                    langauge={book.language}
+                    author={book.author?._id}
+                    avatar={book.cover_image}
+                    onCancel={() => setIsEdit(false)} />) : ""}
+
+                {openModal && <Modal title="Delete!" body="Are you sure want to delete ?" close="Cancel" save="Delete" onSave={handleDelete} onCancel={() => setOpenModal(false)} />}
+            </div>
+        </MasterLayout>
     )
 }
 

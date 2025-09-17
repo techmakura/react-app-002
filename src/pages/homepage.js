@@ -3,6 +3,7 @@ import Categories from "../components/categories";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import HeroSlider from "../components/heroslider";
+import HomepageSlider from "../components/homepageSlider";
 import NewArrivals from "../components/newArrivals";
 import Vendor from "../components/vendor";
 
@@ -14,6 +15,7 @@ const Homepage = () => {
             <Vendor />
             <Block />
             <Categories />
+            <HomepageSlider />
             <NewArrivals />
             <Footer />
         </>
