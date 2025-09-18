@@ -1,12 +1,12 @@
 import Slider from "react-slick";
 
 const SliderComponent = (props) => {
-    const { children } = props;
+    const { children, slidesToShow } = props;
     let settings = {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 2,
+        slidesToShow: slidesToShow,
         slidesToScroll: 1,
     };
     return (

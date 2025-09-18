@@ -17,7 +17,7 @@ const HomepageSlider = () => {
         }
     ]
     return (
-        <SliderComponent>
+        <SliderComponent slidesToShow={3}>
             {sliderItems.map((value, index) => (
                 <div className="slider-item">
                     <img key={index} src={value.image_url} />

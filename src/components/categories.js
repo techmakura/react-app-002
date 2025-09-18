@@ -1,37 +1,44 @@
+import { useState, useEffect } from "react";
 import CategoryItem from "./categoryItem";
+import SliderComponent from "./slider";
 
 const Categories = () => {
-    const categoryData = [
-        {
-            category_name: "Adventure",
-            image_link: "https://boosin.wpbingosite.com/wp-content/uploads/2025/02/cat-6.jpg",
-            image_alt: "adventure category"
-        },
-        {
-            category_name: "Design & Arts",
-            image_link: "https://boosin.wpbingosite.com/wp-content/uploads/2025/02/cat-1.jpg",
-            image_alt: "design & arts category"
-        },
-        {
-            category_name: "Social & civil",
-            image_link: "https://boosin.wpbingosite.com/wp-content/uploads/2025/02/cat-3.jpg",
-            image_alt: "Social & civil category"
-        },
-        {
-            category_name: "Literatur",
-            image_link: "https://boosin.wpbingosite.com/wp-content/uploads/2025/02/cat-5.jpg",
-            image_alt: "Literature category"
+
+    const [category, setCategory] = useState([]);
+    const [error, setError] = useState("");
+
+    const fetchCategories = async () => {
+        try {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/genre`, {
+                "headers": {
+                    "token": process.env.REACT_APP_API_KEY,
+                    "Content-Type": "Application/json"
+                }
+            })
+
+            const result = await response.json();
+            setCategory(result);
+        } catch (err) {
+            setError(err)
         }
-    ]
+    }
+
+    useEffect(() => {
+        fetchCategories();
+    }, [])
 
     return (
         <section class="category">
             <h2><span>Top categories</span></h2>
 
-            <div class="category-wrapper">
-                {categoryData.map((value, index) => (
-                    <CategoryItem category_name={value.category_name} image_alt={value.image_alt} image_link={value.image_link} key={index} />
-                ))}
+            {/* <div class="category-wrapper"> */}
+            <div className="container category-wrapper">
+                <SliderComponent slidesToShow={4}>
+                    {category.map((value, index) => (
+                        <CategoryItem category_name={value.title} image_alt={value.title} image_link={value.cover_image} key={index} />
+                    ))}
+                    {/* </div> */}
+                </SliderComponent>
             </div>
         </section>
     )

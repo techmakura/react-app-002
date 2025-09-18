@@ -6,7 +6,7 @@ const CategoryItem = (props) => {
         <div class="category-item" key={key}>
             <div class="category-title">{category_name}</div>
             <div class="category-image">
-                <img src={image_link}
+                <img src={`${process.env.REACT_APP_API_URL}/uploads/${image_link}`}
                     alt={image_alt} />
             </div>
         </div>
