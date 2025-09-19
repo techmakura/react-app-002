@@ -33,7 +33,7 @@ const Categories = () => {
 
             {/* <div class="category-wrapper"> */}
             <div className="container category-wrapper">
-                <SliderComponent slidesToShow={4}>
+                <SliderComponent slidesToShow={4} slidesToShowTablet={2} slidesToShowMobile={1}>
                     {category.map((value, index) => (
                         <CategoryItem category_name={value.title} image_alt={value.title} image_link={value.cover_image} key={index} />
                     ))}

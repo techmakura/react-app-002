@@ -403,6 +403,10 @@ section.category h2:hover span::after {
     transition: width 500ms linear;
 }
 
+section.category .slick-list{
+    padding-top: 60px;
+}
+
 .category-wrapper {
     padding: 60px 25px;
     border-bottom: 1px solid #dfdfdf;
@@ -603,12 +607,17 @@ footer .copywrite {
     font-family: "Mona sans", sans-serif;
 }
 
+section.new-arrival{
+    padding: 65px 0;
+}
+
 .new-arrival-list {
     margin-top: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    row-gap: 20px;
 }
 
 .new-arrival-item {

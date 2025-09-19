@@ -1,50 +1,43 @@
+import { useState, useEffect } from "react";
 import NewArrivalItem from "./newArrivalItem";
 
 const NewArrivals = () => {
 
-    const NewArrivalItems = [
-        {
-            image_link: "https://boosin.wpbingosite.com/wp-content/uploads/2024/07/time-is-a-mother-12-600x904.jpg",
-            title: "Iron Widow",
-            price_range: "$40.00 - $75.00"
-        },
-        {
-            image_link: "https://boosin.wpbingosite.com/wp-content/uploads/2024/07/time-is-a-mother-31-600x904.jpg",
-            title: "Iron Widow",
-            price_range: "$40.00 - $75.00"
-        },
-        {
-            image_link: "https://boosin.wpbingosite.com/wp-content/uploads/2024/07/time-is-a-mother-12-600x904.jpg",
-            title: "Iron Widow",
-            price_range: "$40.00 - $75.00"
-        },
-        {
-            image_link: "https://boosin.wpbingosite.com/wp-content/uploads/2024/07/time-is-a-mother-31-600x904.jpg",
-            title: "Iron Widow",
-            price_range: "$40.00 - $75.00"
-        },
-        {
-            image_link: "https://boosin.wpbingosite.com/wp-content/uploads/2024/07/time-is-a-mother-12-600x904.jpg",
-            title: "Iron Widow",
-            price_range: "$40.00 - $75.00"
-        },
-        {
-            image_link: "https://boosin.wpbingosite.com/wp-content/uploads/2024/07/time-is-a-mother-31-600x904.jpg",
-            title: "Iron Widow",
-            price_range: "$40.00 - $75.00"
+    const [books, setBooks] = useState([]);
+    const [error, setError] = useState("");
+
+    const fetchBooks = async () => {
+        try {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/book`, {
+                "headers": {
+                    "token": process.env.REACT_APP_API_KEY,
+                    "Content-Type": "Application/json"
+                }
+            })
+
+            const result = await response.json();
+            setBooks(result.slice(0, 5));
+        } catch (err) {
+            setError(err)
         }
-    ]
+    }
+
+    useEffect(() => {
+        fetchBooks();
+    }, [])
+
+    console.log(books);
 
     return (
-        <section>
-            <div class="section-title">
+        <section className="new-arrival container">
+            <div className="section-title">
                 <h2>New arrivals</h2>
                 <a href="#">View All</a>
             </div>
 
-            <div class="new-arrival-list">
-                {NewArrivalItems.map((value, index) => (
-                    <NewArrivalItem image_link={value.image_link} title={value.title} price_range={value.price_range} key={index} />
+            <div className="new-arrival-list">
+                {books.map((value, index) => (
+                    <NewArrivalItem image_link={value.cover_image} title={value.title} price_range={value.price} key={index} />
                 ))}
             </div>
         </section>
