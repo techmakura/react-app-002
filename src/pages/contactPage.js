@@ -5,7 +5,7 @@ const ContactPage = () => {
     return (
         <>
             <Header />
-            This is contact page
+            This is contact page. Created by aashis.
             <Footer />
         </>
     )
